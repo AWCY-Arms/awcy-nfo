@@ -1,0 +1,28 @@
+!ReadMeStyle
+header: 'royal'
+header_alignment: 'center'
+subheader: '-*- Are We Cool Yet? Presents -*-'
+line_buffer: 3
+line_length: 80
+line_div_char: '#'
+line_div_percent: 100
+line_div_alignment: 'center'
+line_start_char: '#'
+line_end_char: '#'
+section_pre: '/X>'
+section_post: '<X\'
+section_alignment: 'center'
+subsection_pre: '[-+'
+subsection_post: '+-]'
+subsection_alignment: 'center'
+credits_primary_thx: 'Brought to you by'
+credits_secondary_thx: 'With the help of'
+credits_additional_thx: 'Additional thanks to'
+credits_team_thx: 'the entire Are We Cool Yet? team'
+credits_pre: '︻╦╤─'
+credits_post: '─╤╦︻'
+credits_offset: 1
+footer: '-`-,-{@  AWCY? - Stronger Together  @}-,-`-'
+footer_alignment: 'center'
+subfooter: '(oven appreciation group)'
+contact_us: 'Join us at: https://www.AreWeCoolYet.WTF'

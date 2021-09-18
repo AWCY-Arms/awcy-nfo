@@ -1,0 +1,125 @@
+# -------------------------------------------------------------------------------------------------
+# INFO: If a [required] option is not needed, set it as an empty list, blank scalar, or
+#       valueless mapping. Add as many [optional] sections as desired, and remove any
+#       unused [optional] sections from the document.
+#
+# TAGS: Use '!section' tags to assign 'title', 'layout' and (optionally) 'spacing'. ie.
+#       '!section Section Title~layout' (layout options: 'center', or 'left'). Double
+#       spacing is used by default, but can optionally be changed using the third position.
+#       '!section Section Title~layout~spacing' (spacing options: 'single', or 'double').
+#
+#       Additionally, for text blocks use "|" to specifically maintain <line breaks>.
+#       (useful for situations such as breaking a long sentance into two chunks and centering
+#       them both, as an aesthetic choice). Alternatively use ">" to ignore existing
+#       <line breaks> and allow the program to determine new <line breaks> that fit
+#       the document accordingly. Double spaces between multiple text blocks are maintained.
+#
+#       Use '!subsection Title' nested tags to create alignment (left, center and right) styled
+#       labels. (In classic style: (centered) [-+ Title +-]'. Subsection tags are useful for
+#       separating logical blocks. Use '-' to create lists (see below), and create maps/objects
+#       by splitting two terms with a ':' (again below). Text that overflows the first line on a
+#       map/object is automatically indented to the starting position of the term following the ':'.
+#
+# YAML: Consists of only the following 3 datastructures, but unlimited nesting is supported.
+#       Indenting is very important to YAML, and use 2 spaces for each indent. YAML must be
+#       valid for a successful conversion. See https://yamlvalidator.com/ for validation questions.
+#
+#       Sequences/Lists  Maps/Objects  Scalars/Strings
+#       - option 1       1: Step 1     Text strings, use 'quotes' to treat protected chars as
+#       - option 2       2. Step 2     plain text, ie. '1: Step 1' would now be a text string.
+#
+# CMDS: run 'awcynfo <YAMLFILE> [OPTIONS]'       create readme.txt from YAML template.
+#       run 'awcynfo --help'                     display application help.
+#       run 'awcynfo --show-styles'              list available styles.
+#       run 'awcynfo --show-headers'             view available headers.
+#       run 'awcynfo --get-example'              create an example template.yaml (ie. this file).
+#       run 'awcynfo --get-style <STYLENAME>'    get a copy of the given style.yaml file.
+#       run 'awcynfo --version'                  display application version
+# -------------------------------------------------------------------------------------------------
+# ===[DOCUMENT STYLING]===
+style: classic # [required] => override by passing 'style' parameter
+header: royal # [optional] => override by passing 'header' parameter, if missing, defaults to style.header
+header_alignment: center # [optional] => left, right, center. if missing, defaults to style.header_alignment
+# ===[REQUIRED SECTIONS]===
+# 'about' [required]
+!section About~center:
+  - title: The Everyman's 43x (E43, E43x, E48) # [required] => short and sweet release title
+  - subtitle: A beginners printable pistol frame # [optional] => leave blank if not needed
+  - version: v1.0 # [required] => optionally, add a 'change_log' section for revision history
+# 'release notes' [required] => leave blank if unneeded (scalar, sequence, or mapping)
+!section Release Notes~center~single: |
+  Another fine release from your friends as AWCY?
+  Oven appreciation of the next level.
+# 'credits' [required] => acknowledge credit at multiple levels. (levels with an empty list are ignored)
+!section Credits~center: # prioritize recognition as you see fit. (groupings below are only suggestions)
+  primary_thx: # decorated thank-you '︻╦╤─ Name ─╤╦︻'
+    - Sigfried(Co-developer, primary 43x/48)
+    - 4myright(Co-developer, primary 43)
+    - bitplumb(Head test engineer)
+  secondary_thx: # milestone influencers
+    - Engarm(ongoing auto sear development assistance)
+    - Because2nd(OEM measurements)
+    - All4one(Early CAD help)
+    - v8vtwin(Moral Support)
+  additional_thx: # testers and others
+    - Skyraze
+    - Karver
+    - Soggyknee
+    - handydandy
+    - all_i_no_is_gloc
+    - mr_380_EZ
+    - apophis9x19
+    - '[REDACTED]'
+  # AWCY? will always get a shoutout, but creative greets are encouraged!
+  team_thx: the entire Are We Cool Yet? team
+# ===[OPTIONAL SECTIONS]===
+# all sections from this point on are discretionary (add/remove as needed)
+!section Print Settings~left~single:
+  Filament: PLA+ or stronger
+  Temp: 205-225 (PLA)
+  Frame orientation: Print magazine well down.
+  Infill: 99% (gyroid pattern with tree supports preferred)
+!section Materials~left:
+  !subsection Kits:
+    1x SS80 builders kit including:
+      - 1x combo front rail block
+      - 1x single piece rear rail
+      - 1x 4mm trigger pin
+      - 1x 3mm rear rail pin
+    1x Glock 43/43x/48 parts kit including:
+      - 1x barrel
+      - 1x upper parts kit
+      - 1x lower parts kit
+!section Guides~left: >
+  This is an example of how the program will ignore line breaks.
+  And instead size the chunks according to best fit for the document. It works with both lines that are too short, like above
+  Or lines that are too long like this one.
+
+  In addition it still preserves any double spaces, for organizational advantages.
+!section Assembly~left:
+  !subsection Frame: # position aligned subsection label (create block titles within sections)
+    1: Remove supports, taking care to clean out the sear pocket.
+    2: Check that all rails and pins fit. Ream out holes if required.
+    3: Install mag catch spring and mag catch.
+    4: Install the rear rail.
+    5: Install sear housing and trigger. Make sure all holes align properly with the frame.
+    6: Install the last round hold open lever.
+    7: Place the front rail into the frame.
+    8: Drive the 4mm pin through the front rail, last round hold open, and trigger. (It can help to align these three components with a smaller pin before driving through the 4mm pin.)
+    9: Drive the 3mm pin through the rear rails and sear housing.
+    10: Install the takedown bar and spring in front of the combo rail.
+    11: Install a the slide, and rack the slide numerous times to ensure function and ensure the rails are firmly seated.
+    12: So anyway, get to blasting.
+!section Statistics~left:
+  Combined round count from beta: '2195'
+  Max round count on one frame: 600 (4myright)
+  Max round count with different materials:
+    - Nylonx: 600 and counting
+    - Resin: 300 and counting
+    - PLA+: 215 and counting
+    - (give us a break theres an ammo shortage)
+!section Troubleshooting~left:
+  - Issue: Slide does not rack cleanly, or hangs up on the front of the frame.
+    Solution: The SS80 rails have notoriously bad QC. Check your rails for flatness and squareness. If that does not resolve the issue, check the frame for warp. Even the slightest warp in the sear will result in difficultly cycling.
+  - Issue: Not cool, help meeeeeeee
+    Solution: It's about the journey
