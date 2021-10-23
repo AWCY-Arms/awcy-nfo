@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "awcy-nfo"
 version = "0.1.0"
-description = "fresh baked readme's from your friends at awcy?"
+description = "fresh baked readmes from your friends at awcy?"
 authors = ["recce <small_teams_behind_enemy_lines@protonmail.com>"]
 license = "BSD"
 readme = "README.md"
@@ -14,7 +14,6 @@ importlib_metadata = "^3.10.1"
 "ruamel.yaml" = "^0.17.4"
 colorama = "^0.4.4"
 click-logging = "^1.0.1"
-pandas = "^1.2.4"
 pyinstaller = "^4.5.1"
 
 [tool.poetry.dev-dependencies]

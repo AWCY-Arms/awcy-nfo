@@ -1,7 +1,7 @@
 
 awcynfo
 =======
-	the readme creator for the modern artist, with a retro vibe.
+	the readme creator for the modern artist with a retro vibe.
 
 ## features:
 - add/remove sections as needed.
@@ -20,6 +20,6 @@ awcynfo
 | awcynfo --get-style          | get a copy the given style.yaml file. |
 | awcynfo --version            | display application version           |
 
-... what's next
+... what next
 
 #### -AWCY?

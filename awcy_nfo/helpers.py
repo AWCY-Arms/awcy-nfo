@@ -1,14 +1,12 @@
+import io
 import os
 import click
 import shutil
 import logging
 import contextlib
-import warnings
 
-# suppress pandas future warnings
-warnings.simplefilter(action="ignore", category=FutureWarning)
-import pandas as pd
-from click import option, echo_via_pager
+from click.utils import format_filename
+from click import option, echo, format_filename
 from pkg_resources import resource_listdir
 from pathlib import Path
 
@@ -80,9 +78,10 @@ def show_styles_option(*param_decls, **kwargs):
     def callback(ctx, param, value):
         if not value or ctx.resilient_parsing:
             return
+        echo("-----------------------------------------------------------")
         fs = resource_listdir(__package__, "styles")
         for f in fs:
-            print(f)
+            echo(f)
         ctx.exit()
 
     if not param_decls:
@@ -107,12 +106,14 @@ def show_headers_option(*param_decls, **kwargs):
     def callback(ctx, param, value):
         if not value or ctx.resilient_parsing:
             return
-        pd.set_option("display.max_rows", None)
         fs = resource_listdir(__package__, "headers")
+        echo("-----------------------------------------------------------")
         for f in fs:
             fp = __package__ + "/headers/" + f
-            df = pd.read_csv(fp, error_bad_lines=False)
-            echo_via_pager(f + "\n\n" + df.to_string())
+            with io.open(fp,'r', encoding='utf-8') as ft:
+                echo("=> " + format_filename(f))
+                echo(ft.read() + "\n")
+                echo("-----------------------------------------------------------")
         ctx.exit()
 
     if not param_decls:
@@ -122,7 +123,7 @@ def show_headers_option(*param_decls, **kwargs):
     kwargs.setdefault("expose_value", False)
     kwargs.setdefault("is_eager", True)
     kwargs.setdefault(
-        "help", "Scroll through available headers with 'Q' key, and then exit."
+        "help", "Print all available headers and exit."
     )
     kwargs["callback"] = callback
     return option(*param_decls, **kwargs)

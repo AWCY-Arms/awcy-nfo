@@ -568,8 +568,6 @@ class ReadMe(object):
             for k, v in cont.items():
                 if isinstance(k, Subsection):
                     logger.debug("(Subsection Instance (key))")
-                    # no longer used, but left for now, just in case...
-                    # self.undent_count += 1  # increment unindent count
                     if self.indent_is_init:
                         self.make_line(type=LineType.SPACER)
                     self.make_line(type=LineType.SUBSECTION, text=k.name)
