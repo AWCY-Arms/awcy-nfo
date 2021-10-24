@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "awcy-nfo"
-version = "0.1.0"
+version = "0.1.1"
 description = "fresh baked readmes from your friends at awcy?"
 authors = ["recce <small_teams_behind_enemy_lines@protonmail.com>"]
 license = "BSD"
