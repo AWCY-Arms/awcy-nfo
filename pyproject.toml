@@ -14,13 +14,13 @@ importlib_metadata = "^3.10.1"
 "ruamel.yaml" = "^0.17.4"
 colorama = "^0.4.4"
 click-logging = "^1.0.1"
-pyinstaller = "^4.5.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 flake8 = "^3.9.0"
 black = "^20.8b1"
 ipython = "^7.22.0"
+pyinstaller = "^4.5.1"
 
 [tool.poetry.scripts]
 awcynfo = "awcy_nfo.cli:create_readme"
